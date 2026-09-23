@@ -17,3 +17,5 @@ auth.json
 /.vscode
 
 *.sql
+
+/bootstrap/cache/*.php
