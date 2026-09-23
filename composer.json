@@ -1,0 +1,25 @@
+{
+    "name": "stylevera/app",
+    "description": "Stylevera Premium Fashion eCommerce — Laravel 12",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "aws/aws-sdk-php": "^3.384",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^3.0",
+        "league/flysystem-aws-s3-v3": "^3.34"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "app/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
