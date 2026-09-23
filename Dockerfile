@@ -10,11 +10,13 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-dev
 
+RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache
+
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh
 
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 8080
 
