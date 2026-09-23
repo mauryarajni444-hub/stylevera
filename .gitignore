@@ -15,3 +15,5 @@ auth.json
 /.fleet
 /.idea
 /.vscode
+
+*.sql
