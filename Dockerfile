@@ -10,8 +10,6 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-dev
 
-RUN php artisan config:cache
-
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh
