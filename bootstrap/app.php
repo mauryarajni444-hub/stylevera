@@ -11,6 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->trustProxies(at: '*');
+
         $middleware->alias([
             'sv.auth' => \App\Http\Middleware\StyleveraAuth::class,
             'api.auth' => \App\Http\Middleware\ApiAuth::class,
@@ -20,7 +22,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
         ]);
-
 
         $middleware->prepend(\App\Http\Middleware\ForceCors::class);
     })
