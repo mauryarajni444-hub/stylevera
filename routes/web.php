@@ -231,3 +231,13 @@ Route::middleware('sv.auth')->group(function () {
     Route::get('/game/leaderboard', [GameController::class, 'leaderboard'])->name('game.leaderboard');
     Route::post('/game/score', [GameController::class, 'submitScore'])->name('game.score');
 });
+
+Route::get('/_envcheck', function () {
+    return response()->json([
+        'env' => app()->environment(),
+        'app_url' => config('app.url'),
+        'is_secure' => request()->isSecure(),
+        'forwarded_proto' => request()->header('X-Forwarded-Proto'),
+        'sample_asset' => asset('css/vendor.css'),
+    ]);
+});
